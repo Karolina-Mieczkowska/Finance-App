@@ -1,0 +1,21 @@
+:root {
+    --background-clr: #F0F3F6;
+    --primary-clr: #FF5959;
+    --secondary-clr: #085F63;
+    --current-variant-clr: #FF7373; 
+    --saving-clr: #49BEB7;
+    --saving-variant-clr: #6FCCC6;
+    --currency-clr: #5AFA6A;
+    --currency-variant-clr: #8CFC97;
+    --master-card-clr: #FFC700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background-clr);
+}
