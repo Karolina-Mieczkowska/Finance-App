@@ -7,7 +7,7 @@
     --saving-variant-clr: #6FCCC6;
     --currency-clr: #5AFA6A;
     --currency-variant-clr: #8CFC97;
-    --master-card-clr: #FFC700;
+    --value-deposit-clr: #00cc66;
 }
 
 * {
@@ -16,6 +16,208 @@
     box-sizing: border-box;
 }
 
+html, 
+body, 
+.wrapper {
+    height: 100%;
+}
+
 body {
     background: var(--background-clr);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 400;
+}
+
+header {
+    display: flex;
+    padding: 1rem;
+    position: absolute;
+    width: 100%;
+}
+
+.logo {
+    color: var(--primary-clr);
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1.5rem;
+}
+
+.title {
+    font-size: 1.8rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.accounts {
+    display: flex;
+    margin-top: 4rem;
+    overflow-x: auto;
+}
+
+.accounts::-webkit-scrollbar {
+    width: 0;
+}
+
+.accounts_element {
+    min-width: 80%;
+    padding: 1rem;
+}
+
+.accounts_element_title {
+    font-size: 1.25rem;
+    padding-bottom: .75rem;
+}
+
+.accounts_element_card {
+    border-radius: 16px;
+    padding: 3.25rem 1.75rem 1.5rem 1.75rem;
+    font-weight: 500;
+}
+
+.accounts_element_card_row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.accounts_element_card_row:first-child {
+    margin-bottom: 1rem;
+}
+
+.accounts_element_card_number {
+    position: relative;
+    top: 8px;
+    font-size: 1.2rem;
+}
+
+.accounts_element_card_mark {
+    height: 30px;
+    width: 30px;
+}
+
+.accounts_element_card_icon-mastercard {
+    width: 3rem;
+}
+
+.accounts_element_card_ammount {
+    font-size: 2rem;
+    position: relative;
+    top: 3px;
+}
+
+.accounts_element_card_ammount span {
+    font-size: 1rem;
+}
+
+.accounts_element_card-current {
+    background: var(--current-variant-clr);
+    background: linear-gradient(45deg, var(--current-variant-clr) 43%, var(--primary-clr) 43%);
+}
+
+.accounts_element_card-saving {
+    background: var(--saving-variant-clr);
+    background: linear-gradient(45deg, var(--saving-variant-clr) 43%, var(--saving-clr) 43%);
+}
+
+.accounts_element_card-currency {
+    background: var(--currency-variant-clr);
+    background: linear-gradient(45deg, var(--currency-variant-clr) 43%, var(--currency-clr) 43%);
+}
+
+.transfer {
+    background: #fff;
+    height: 55%;
+}
+
+.history {
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.2); 
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.2);
+    position: absolute;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    bottom: -70%;
+    background: #fff;
+    width: 100%;
+    height: 85%;
+    transition: all .5s ease;
+    padding: 2rem;
+}
+
+.history_title {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.movement {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+    padding: .5rem 0;
+}
+
+.movement_value {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.movement_type-deposit {
+    color: var(--value-deposit-clr);
+}
+
+footer {
+    display: none;
+}
+
+@media only screen and (min-width: 992px) {
+    header {
+        padding: 2rem;
+    }
+    .logo {
+        height: 2.5rem;
+        width: 2.5rem;
+        margin-right: 2rem;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .wrapper {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto;
+        padding: 10% 0 5% 0;
+    }
+    .accounts {
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 0;
+    }
+    .history {
+        position: inherit;
+        box-shadow: none;
+    }
+    .accounts, 
+    .transfer, 
+    .history {
+        width: 30%;
+        height: auto;
+    }
+    footer {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        background: var(--background-clr);
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
 }
