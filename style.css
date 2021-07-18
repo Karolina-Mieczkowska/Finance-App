@@ -141,13 +141,19 @@ header {
     padding: 1.5rem;
 }
 
+.transfer_form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+}
+
 .section_title-transfer {
     display: none;
 }
 
 .form_element-select {
     float: left;
-    width: 50%;
+    /* width: 50%; */
 }
 
 .transfer_label,
@@ -351,6 +357,9 @@ footer {
     .transfer {
         padding: 2rem;
     }
+    .transfer_form {
+        display: block;
+    }
     /* .transfer_form {
         height: 90%;
         display: flex;
@@ -365,7 +374,7 @@ footer {
         width: 100%;
     }
     .btn-transfer {
-        margin-top: .75rem;
+        margin-top: 3.25rem;
     }
     .history {
         position: inherit;
