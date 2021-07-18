@@ -98,7 +98,7 @@ header {
 .accounts_element_card_number {
     position: relative;
     top: 8px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .accounts_element_card_mark {
@@ -110,13 +110,13 @@ header {
     width: 3rem;
 }
 
-.accounts_element_card_ammount {
+.accounts_element_card_amount {
     font-size: 2rem;
     position: relative;
     top: 3px;
 }
 
-.accounts_element_card_ammount span {
+.accounts_element_card_amount span {
     font-size: 1rem;
 }
 
@@ -138,6 +138,69 @@ header {
 .transfer {
     background: #fff;
     height: 55%;
+    padding: 1.5rem;
+}
+
+.section_title-transfer {
+    display: none;
+}
+
+.form_element-select {
+    float: left;
+    width: 50%;
+}
+
+.transfer_label,
+.transfer_select {
+    width: 100%;
+}
+
+.transfer_label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+.transfer_select {
+    font-size: inherit;
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
+}
+
+/* .transfer_label-amount {
+    width: fit-content;
+} */
+
+.transfer_input-number,
+.transfer_input-number:focus {
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    font-size: 3rem;
+    width: 30%;
+}
+
+.btn-transfer {
+    /* border: none;
+    background: none; */
+    border: none;
+    padding: .75rem;
+    margin-top: .5rem;
+    width: 100%;
+    background: var(--currency-variant-clr);
+    font-size: 1.25rem;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+  
+.btn-transfer:hover,
+.btn-transfer:focus {
+    outline: none;
+}
+
+.transfer_icon {
+    position: relative;
+    top: 3px;
 }
 
 .history {
@@ -168,11 +231,11 @@ header {
 }
 
 .history-active 
-.history_title {
+.section_title-history {
     margin-bottom: 0;
 }
 
-.history_title {
+.section_title {
     font-size: 1.3rem;
     text-align: center;
     margin-bottom: 3rem;
@@ -184,11 +247,15 @@ header {
     top: -5px;
 }
 
+.movement:first-child {
+    padding: 0 0 .25rem 0;
+}
+
 .movement {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #000;
-    padding: .5rem 0;
+    padding: 1.5rem 0 .25rem 0;
 }
 
 .movement_value {
@@ -202,10 +269,12 @@ header {
 
 .history_summary {
     display: flex;
+    justify-content: space-between;
     position: absolute;
     bottom: 0;
     background: #fff;
-    padding: 1rem 0;
+    padding: 1rem 0 ;
+    font-size: 1.25rem;
 }
 
 .summary_row {
@@ -214,14 +283,42 @@ header {
 
 .summary_label,
 .summary_value {
-    margin-right: 1rem;
+    margin-right: .75rem;
+}
+
+.summary_value-in {
+    color: var(--value-deposit-clr);
+}
+
+.btn-sort {
+    border: none;
+    background: none;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+  
+.btn-sort:hover,
+.btn-sort:focus {
+    outline: none;
+    color: var(--value-deposit-clr);
 }
 
 footer {
     display: none;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) {
+    .accounts_element {
+        min-width: 40%;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    body {
+        overflow-y: visible;
+    }
     header {
         padding: 2rem;
     }
@@ -251,19 +348,38 @@ footer {
         width: 30%;
         height: auto;
     }
+    .transfer {
+        padding: 2rem;
+    }
+    /* .transfer_form {
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    } */
+    .section_title-transfer {
+        display: block;
+    }
+    .form_element-select {
+        float: left;
+        width: 100%;
+    }
+    .btn-transfer {
+        margin-top: .75rem;
+    }
     .history {
         position: inherit;
         box-shadow: none;
         padding: 2rem;
     }
     .history-active 
-    .history_title {
+    .section_title {
         margin-bottom: 3rem;
     }
     /* .history_movements {
         height: 90%;
     } */
-    .history_title {
+    .section_title {
         font-size: 1.5rem;
     }
     .history_icon {
@@ -271,6 +387,7 @@ footer {
     }
     .history_summary {
         position: inherit;
+        padding: 2rem 0 0 0;
     }
     footer {
         display: block;
@@ -282,3 +399,19 @@ footer {
         padding: 1rem;
     }
 }
+
+
+@media only screen and (min-width: 1200px) {
+    .accounts_element_card_number {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .wrapper {
+        width: 70%;
+        padding: 7% 0 5% 0;
+    }
+}
+
+

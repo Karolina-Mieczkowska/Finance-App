@@ -32,7 +32,7 @@
                     </div>
                     <div class="accounts_element_card_row">
                         <object class="accounts_element_card_icon-mastercard" data="mastercard.svg" type="image/svg+xml"></object>
-                        <p class="accounts_element_card_ammount">----GBP</p>
+                        <p class="accounts_element_card_amount">----GBP</p>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="accounts_element_card_row">
                         <object class="accounts_element_card_icon-mastercard" data="mastercard.svg" type="image/svg+xml"></object>
-                        <p class="accounts_element_card_ammount">----GBP</p>
+                        <p class="accounts_element_card_amount">----GBP</p>
                     </div>
                 </div>
             </div>
@@ -58,16 +58,44 @@
                     </div>
                     <div class="accounts_element_card_row">
                         <object class="accounts_element_card_icon-mastercard" data="mastercard.svg" type="image/svg+xml"></object>
-                        <p class="accounts_element_card_ammount">----PLN</p>
+                        <p class="accounts_element_card_amount">----PLN</p>
                     </div>
                 </div>
             </div>
         </nav>
         <section class="transfer">
-            
+            <div class="section_title section_title-transfer">
+                <h3>Transfer</h3>
+            </div>
+            <form class="transfer_form">
+                <div class="form_element form_element-select">
+                    <label class="transfer_label">Transfer from</label>
+                    <select class="transfer_select" name="accounts" id="accounts" form="transfer_form">
+                        <option value="current">Current</option>
+                        <option value="saving">Saving</option>
+                        <option value="currency">Currency</option>
+                    </select>
+                </div>
+                <div class="form_element form_element-select">
+                    <label class="transfer_label">Transfer to</label>
+                    <select class="transfer_select" name="accounts" id="accounts" form="transfer_form">
+                        <option value="current">Current</option>
+                        <option value="saving">Saving</option>
+                        <option value="currency">Currency</option>
+                    </select>
+                </div>
+                <div class="form_element">
+                    <label class="transfer_label transfer_label-amount">Amount</label>
+                    <input type="number" step="10" class="transfer_input-number">
+                </div>
+                <button type="submit" class="btn-transfer">
+                    Send 
+                    <object class="transfer_icon" data="arrow-right.svg" type="image/svg+xml"></object>
+                </button>
+            </form>
         </section>
-        <section class="history history-active">
-            <div class="history_title">
+        <section class="history">
+            <div class="section_title section_title-history">
                 <h3>History</h3>
                 <object class="history_icon" data="chevron.svg" type="image/svg+xml"></object>
             </div>
@@ -154,12 +182,14 @@
                 </div>
             </div>
             <div class="history_summary">
-                <p class="summary_label">In</p>
-                <p class="summary_value summary_value-in">----</p>
-                <p class="summary_label">Out</p>
-                <p class="summary_value summary_value-out">----</p>
-                <p class="summary_label">Int</p>
-                <p class="summary_value summary_value-int">----</p>
+                <div class="summary_row summary_row-in">
+                    <p class="summary_label">In</p>
+                    <p class="summary_value summary_value-in">----</p>
+                </div>
+                <div class="summary_row summary_row-out">
+                    <p class="summary_label">Out</p>
+                    <p class="summary_value summary_value-out">----</p>
+                </div>
                 <button class="btn-sort"><object data="arrow-down.svg" type="image/svg+xml"></object> SORT</button>
             </div>
         </section>
