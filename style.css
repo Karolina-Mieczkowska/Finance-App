@@ -151,9 +151,28 @@ header {
     display: none;
 }
 
-.form_element-select {
+/* .form_element-select {
     float: left;
     /* width: 50%; */
+
+.form_element {
+    width: 100%;
+}
+
+.form_element-from {
+    grid-column: 1/2;
+}
+
+.form_element-to {
+    grid-column: 2/4;
+}
+
+.form_element-amount {
+    grid-column: 1/4;
+}
+
+.form_element-btn {
+    grid-column: 1/4;
 }
 
 .transfer_label,
@@ -202,6 +221,7 @@ header {
 .btn-transfer:hover,
 .btn-transfer:focus {
     outline: none;
+    background: var(--currency-clr);
 }
 
 .transfer_icon {
@@ -369,10 +389,13 @@ footer {
     .section_title-transfer {
         display: block;
     }
-    .form_element-select {
+    .transfer_select {
+        margin-bottom: 1.5rem;
+    }
+    /* .form_element-select {
         float: left;
         width: 100%;
-    }
+    } */
     .btn-transfer {
         margin-top: 3.25rem;
     }

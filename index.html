@@ -9,6 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
     <header>
@@ -20,6 +27,7 @@
             <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L4.047 3.339 8 7.293l3.954-3.954L9.049.435zm3.61 3.611L8.708 8l3.954 3.954 2.904-2.905c.58-.58.58-1.519 0-2.098l-2.904-2.905zm-.706 8.614L8 8.708l-3.954 3.954 2.905 2.904c.58.58 1.519.58 2.098 0l2.905-2.904zm-8.614-.706L7.292 8 3.339 4.046.435 6.951c-.58.58-.58 1.519 0 2.098l2.904 2.905z"/>
         </svg>
         <h1 class="title">My Finances</h1>
+
     </header>
     <main class="wrapper">
         <nav class="accounts">
@@ -28,10 +36,10 @@
                 <div class="accounts_element_card accounts_element_card-current">
                     <div class="accounts_element_card_row">
                         <p class="accounts_element_card_number">#### #### #### ####</p>
-                        <img class="accounts_element_card_icon-cardmark" src="card-mark.png" alt="card-mark">
+                        <img class="accounts_element_card_icon-cardmark" src="img/card-mark.png" alt="card-mark">
                     </div>
                     <div class="accounts_element_card_row">
-                        <object class="accounts_element_card_icon-mastercard" data="mastercard.svg" type="image/svg+xml"></object>
+                        <object class="accounts_element_card_icon-mastercard" data="icons/mastercard.svg" type="image/svg+xml"></object>
                         <p class="accounts_element_card_amount">----GBP</p>
                     </div>
                 </div>
@@ -41,10 +49,10 @@
                 <div class="accounts_element_card accounts_element_card-saving">
                     <div class="accounts_element_card_row">
                         <p class="accounts_element_card_number">#### #### #### ####</p>
-                        <img class="accounts_element_card_icon-cardmark" src="card-mark.png" alt="card-mark">
+                        <img class="accounts_element_card_icon-cardmark" src="img/card-mark.png" alt="card-mark">
                     </div>
                     <div class="accounts_element_card_row">
-                        <object class="accounts_element_card_icon-mastercard" data="mastercard.svg" type="image/svg+xml"></object>
+                        <object class="accounts_element_card_icon-mastercard" data="icons/mastercard.svg" type="image/svg+xml"></object>
                         <p class="accounts_element_card_amount">----GBP</p>
                     </div>
                 </div>
@@ -54,10 +62,10 @@
                 <div class="accounts_element_card accounts_element_card-currency">
                     <div class="accounts_element_card_row">
                         <p class="accounts_element_card_number">#### #### #### ####</p>
-                        <img class="accounts_element_card_icon-cardmark" src="card-mark.png" alt="card-mark">
+                        <img class="accounts_element_card_icon-cardmark" src="img/card-mark.png" alt="card-mark">
                     </div>
                     <div class="accounts_element_card_row">
-                        <object class="accounts_element_card_icon-mastercard" data="mastercard.svg" type="image/svg+xml"></object>
+                        <object class="accounts_element_card_icon-mastercard" data="icons/mastercard.svg" type="image/svg+xml"></object>
                         <p class="accounts_element_card_amount">----PLN</p>
                     </div>
                 </div>
@@ -68,36 +76,38 @@
                 <h3>Transfer</h3>
             </div>
             <form class="transfer_form">
-                <div class="form_element form_element-select">
+                <div class="form_element form_element-from">
                     <label class="transfer_label">Transfer from</label>
                     <select class="transfer_select" name="accounts" id="accounts" form="transfer_form">
                         <option value="current">Current</option>
                         <option value="saving">Saving</option>
                         <option value="currency">Currency</option>
+                        <option value="loan">Loan</option>
                     </select>
                 </div>
-                <div class="form_element form_element-select">
+                <div class="form_element form_element-to">
                     <label class="transfer_label">Transfer to</label>
                     <select class="transfer_select" name="accounts" id="accounts" form="transfer_form">
                         <option value="current">Current</option>
                         <option value="saving">Saving</option>
                         <option value="currency">Currency</option>
+                        <option value="loan">Loan</option>
                     </select>
                 </div>
-                <div class="form_element">
+                <div class="form_element form_element-amount">
                     <label class="transfer_label transfer_label-amount">Amount</label>
                     <input type="number" step="10" class="transfer_input-number">
                 </div>
-                <button type="submit" class="btn-transfer">
+                <button type="submit" class="btn-transfer form_element-btn">
                     Send 
-                    <object class="transfer_icon" data="arrow-right.svg" type="image/svg+xml"></object>
+                    <object class="transfer_icon" data="icons/arrow-right.svg" type="image/svg+xml"></object>
                 </button>
             </form>
         </section>
         <section class="history">
             <div class="section_title section_title-history">
                 <h3>History</h3>
-                <object class="history_icon" data="chevron.svg" type="image/svg+xml"></object>
+                <object class="history_icon" data="icons/chevron.svg" type="image/svg+xml"></object>
             </div>
             <div class="history_movements">
                 <div class="movement">
@@ -190,7 +200,7 @@
                     <p class="summary_label">Out</p>
                     <p class="summary_value summary_value-out">----</p>
                 </div>
-                <button class="btn-sort"><object data="arrow-down.svg" type="image/svg+xml"></object> SORT</button>
+                <button class="btn-sort"><object data="icons/arrow-down.svg" type="image/svg+xml"></object> SORT</button>
             </div>
         </section>
     </main>
