@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
+    <!-- <link rel="manifest" href="favicon/site.webmanifest"> -->
     <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
@@ -107,8 +107,22 @@
         <section class="history">
             <div class="section_title section_title-history">
                 <h3>History</h3>
-                <object class="history_icon" data="icons/chevron.svg" type="image/svg+xml"></object>
+                <i class="history_icon history_icon-chevron">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
+                    </svg>
+                </i>
+                <i class="history_icon history_icon-dots">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                    </svg>
+                </i>
             </div>
+            <ul class="subnav">
+                <li class="subnav_item subnav_item-active">Current</li>
+                <li class="subnav_item">Saving</li>
+                <li class="subnav_item">Currency</li>
+            </ul>
             <div class="history_movements">
                 <div class="movement">
                     <div class="movement_type">deposit</div>

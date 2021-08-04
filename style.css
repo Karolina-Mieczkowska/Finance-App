@@ -13,7 +13,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
 html, 
@@ -235,15 +235,14 @@ header {
     position: absolute;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    bottom: -70%;
+    bottom: -68%;
     background: #fff;
     width: 100%;
     height: 85%;
     transition: all .5s ease;
     padding: 1.5rem;
-    /* display: flex;
-    flex-direction: column; */
-    /* justify-content: space-between; */
+    display: flex;
+    flex-direction: column;
 }
 
 .history_movements {
@@ -267,10 +266,46 @@ header {
     margin-bottom: 3rem;
 }
 
-.history_icon {
-    width: 2.75rem;
-    position: relative;
-    top: -5px;
+.history_icon svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: .75rem 1rem 0 1rem;
+    fill: #444;
+}
+
+.history_icon-dots svg {
+    display: none;
+}
+
+.history-active
+.history_icon-chevron svg {
+    display: none;
+}
+
+.history-active
+.history_icon-dots svg {
+    display: inline-block;
+}
+
+/* SUBNAV */ 
+
+.subnav {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding-bottom: 2.5rem;
+    padding-top: 1rem;
+    color: #555;
+}
+
+.subnav_item {
+    padding-bottom: .5rem;
+}
+
+.subnav_item-active {
+    color: #000;
+    font-weight: 500;
+    border-bottom: 2px solid #000;
 }
 
 .movement:first-child {
@@ -295,12 +330,14 @@ header {
 
 .history_summary {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     position: absolute;
     bottom: 0;
+    left: 0;
     background: #fff;
     padding: 1rem 0 ;
     font-size: 1.25rem;
+    width: 100%;
 }
 
 .summary_row {
