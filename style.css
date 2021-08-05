@@ -300,6 +300,7 @@ header {
 
 .subnav_item {
     padding-bottom: .5rem;
+    cursor: pointer;
 }
 
 .subnav_item-active {
@@ -328,6 +329,10 @@ header {
     color: var(--value-deposit-clr);
 }
 
+.movement_value-currency {
+    font-size: .8rem;
+}
+
 .history_summary {
     display: flex;
     justify-content: space-around;
@@ -344,10 +349,18 @@ header {
     display: flex;
 }
 
+.summary_label {
+    font-size: 1rem;
+}
+
 .summary_label,
 .summary_value {
     margin-right: .75rem;
 }
+
+/* .summary_value {
+    font-size: .8rem;
+} */
 
 .summary_value-in {
     color: var(--value-deposit-clr);
