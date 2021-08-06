@@ -111,13 +111,9 @@ header {
 }
 
 .accounts_element_card_amount {
-    font-size: 2rem;
+    font-size: 1.5rem;
     position: relative;
     top: 3px;
-}
-
-.accounts_element_card_amount span {
-    font-size: 1rem;
 }
 
 .accounts_element_card-current {
@@ -137,8 +133,16 @@ header {
 
 .transfer {
     background: #fff;
-    height: 55%;
+    height: 90%;
+    width: 100%;
     padding: 1.5rem;
+    position: absolute;
+    top: 50%;
+    transition: all .3s ease;
+}
+
+.transfer-active {
+    top: 10%;
 }
 
 .transfer_form {
@@ -151,9 +155,23 @@ header {
     display: none;
 }
 
-/* .form_element-select {
-    float: left;
-    /* width: 50%; */
+.transfer-swipe {
+    text-align: center;
+    position: relative;
+    top: -1.5rem;
+    border-bottom: 2px solid #ddd;
+}
+
+.transfer-swipe svg {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: #444;
+}
+
+.transfer-active
+.transfer-swipe svg {
+    transform: rotate(180deg);
+}
 
 .form_element {
     width: 100%;
@@ -191,10 +209,6 @@ header {
     padding: .5rem 1rem;
 }
 
-/* .transfer_label-amount {
-    width: fit-content;
-} */
-
 .transfer_input-number,
 .transfer_input-number:focus {
     border: none;
@@ -205,8 +219,6 @@ header {
 }
 
 .btn-transfer {
-    /* border: none;
-    background: none; */
     border: none;
     padding: .75rem;
     margin-top: .5rem;
@@ -358,10 +370,6 @@ header {
     margin-right: .75rem;
 }
 
-/* .summary_value {
-    font-size: .8rem;
-} */
-
 .summary_value-in {
     color: var(--value-deposit-clr);
 }
@@ -383,6 +391,12 @@ header {
 
 footer {
     display: none;
+}
+
+@media only screen and (min-width: 576px) {
+    .accounts_element_card_amount {
+        font-size: 2rem;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -427,25 +441,23 @@ footer {
     .transfer {
         padding: 2rem;
     }
+    .transfer {
+        height: auto;
+        position: inherit;
+        padding: 2rem;
+    }
+    .transfer-swipe {
+        display: none;
+    }
     .transfer_form {
         display: block;
     }
-    /* .transfer_form {
-        height: 90%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    } */
     .section_title-transfer {
         display: block;
     }
     .transfer_select {
         margin-bottom: 1.5rem;
     }
-    /* .form_element-select {
-        float: left;
-        width: 100%;
-    } */
     .btn-transfer {
         margin-top: 3.25rem;
     }
@@ -458,9 +470,6 @@ footer {
     .section_title {
         margin-bottom: 3rem;
     }
-    /* .history_movements {
-        height: 90%;
-    } */
     .section_title {
         font-size: 1.5rem;
     }

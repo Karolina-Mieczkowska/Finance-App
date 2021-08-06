@@ -3,28 +3,22 @@ const subnavItems = document.querySelectorAll('.subnav_item');
 const history = document.querySelector('.history');
 const sectionTitleHistory = document.querySelector('.section_title-history');
 const historyMovements = document.querySelector('.history_movements');
+
 const incomeLabel = document.querySelector('.summary_value-in');
 const outcomeLabel = document.querySelector('.summary_value-out');
 const numberLabel = Array.from(document.querySelectorAll('.accounts_element_card_number'));
 const accountBalanceLabel = Array.from(document.querySelectorAll('.accounts_element_card_amount'));
-const btnSort = document.querySelector('.btn-sort');
 const currentYearLabel = document.querySelector('.current_year');
-const btnTransfer = document.querySelector('.btn-transfer');
 
-// TRANSFER SELECT OPTIONS
+const btnSort = document.querySelector('.btn-sort');
+const btnTransfer = document.querySelector('.btn-transfer');
 
 const transferSelectSend = document.querySelector('.transfer_select-send');
 const transferSelectReceive = document.querySelector('.transfer_select-receive');
 const transferInputNumber = document.querySelector('.transfer_input-number');
 
-// const selectSendCurrent = document.querySelector('.select_send-current');
-// const selectSendSaving = document.querySelector('.select_send-saving');
-// const selectSendCurrency = document.querySelector('.select_send-currency');
-// const selectSendLoan = document.querySelector('.select_send-loan');
-
-// const selectReceiveCurrent = document.querySelector('.select_receive-current');
-// const selectReceiveSaving = document.querySelector('.select_receive-saving');
-// const selectReceiveCurrency =document.querySelector('.select_receive-currency');
+const transferSection = document.querySelector('.transfer');
+const transferSwipe = document.querySelector('.transfer-swipe');
 
 // SWIPE FRONT HISTORY LAYER
 
@@ -55,6 +49,8 @@ const touchMove = function() {
 sectionTitleHistory.addEventListener('touchstart', touchStart);
 sectionTitleHistory.addEventListener('touchend', touchEnd);
 sectionTitleHistory.addEventListener('touchmove', touchMove);
+
+// SWIPE TRANSFER LAYER
 
 // SUBNAV ROUTER
 
