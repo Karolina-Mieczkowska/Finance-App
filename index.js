@@ -90,21 +90,21 @@ subnavItems.forEach(function(item, ind) {
 
 const currentAccount = {
     type: 'current',
-    number: '1111 1111 1111 1111',
+    number: '1234 1234 1234 1234',
     currency: 'GBP',
     movements: [200, -100, -300, 400, 500]
 };
 
 const savingAccount = {
     type: 'saving',
-    number: '2222 2222 2222 2222',
+    number: '5678 5678 5678 5678',
     currency: 'GBP',
     movements: [30, 30, 30, -10]
 };
 
 const currencyAccount = {
     type: 'currency',
-    number: '3333 3333 3333 3333',
+    number: '3456 3456 3456 3456',
     currency: 'PLN',
     movements: [200, 300, 1000, -300, 200]
 };
@@ -141,7 +141,7 @@ const displayMovements = function(acc, sort = false) {
         const historyMovement = `
                 <div class="movement">
                     <div class="movement_type movement_type-${type}">${type}</div>
-                    <div class="movement_value movement_type-${type}">${movement}<span class="movement_value-currency">${acc.currency}</span></div>
+                    <div class="movement_value movement_type-${type}">${movement.toFixed(2)}<span class="movement_value-currency">${acc.currency}</span></div>
                 </div>
                 `;
         historyMovements.insertAdjacentHTML('afterbegin', historyMovement)
@@ -161,7 +161,7 @@ const displaySummary = function(acc) {
         .reduce(function(acc, curr) {
             return acc + curr;
         }, 0)
-    incomeLabel.textContent = incomes;
+    incomeLabel.textContent = incomes.toFixed(2);
 
     const outcomes = acc.movements
         .filter(function(mov) {
@@ -170,7 +170,7 @@ const displaySummary = function(acc) {
         .reduce(function(acc, curr)  {
             return acc + curr;
         }, 0)
-    outcomeLabel.textContent = Math.abs(outcomes);
+    outcomeLabel.textContent = Math.abs(outcomes).toFixed(2);
 }
 
 displaySummary(accounts[0])
@@ -212,7 +212,7 @@ const calcDisplayBalance = function(accs) {
         }, 0);
         accountBalanceLabel.find(function(label) {
             return label.classList.contains(`balance-${acc.type}`)
-        }).textContent = acc.balance + ' ' + acc.currency;
+        }).textContent = acc.balance.toFixed(2) + ' ' + acc.currency;
     })
 };
 
@@ -252,7 +252,7 @@ btnTransfer.addEventListener('click', function(ev) {
         
         if (senderAccount === currencyAccount) {
             
-            senderAccount.movements.push(-(transferAmount * zlotyExchangeRate))
+            senderAccount.movements.push(-transferAmount);
             receiverAccount.movements.push(transferAmount / zlotyExchangeRate);
             
         }
