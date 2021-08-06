@@ -8,6 +8,23 @@ const outcomeLabel = document.querySelector('.summary_value-out');
 const numberLabel = Array.from(document.querySelectorAll('.accounts_element_card_number'));
 const accountBalanceLabel = Array.from(document.querySelectorAll('.accounts_element_card_amount'));
 const btnSort = document.querySelector('.btn-sort');
+const currentYearLabel = document.querySelector('.current_year');
+const btnTransfer = document.querySelector('.btn-transfer');
+
+// TRANSFER SELECT OPTIONS
+
+const transferSelectSend = document.querySelector('.transfer_select-send');
+const transferSelectReceive = document.querySelector('.transfer_select-receive');
+const transferInputNumber = document.querySelector('.transfer_input-number');
+
+// const selectSendCurrent = document.querySelector('.select_send-current');
+// const selectSendSaving = document.querySelector('.select_send-saving');
+// const selectSendCurrency = document.querySelector('.select_send-currency');
+// const selectSendLoan = document.querySelector('.select_send-loan');
+
+// const selectReceiveCurrent = document.querySelector('.select_receive-current');
+// const selectReceiveSaving = document.querySelector('.select_receive-saving');
+// const selectReceiveCurrency =document.querySelector('.select_receive-currency');
 
 // SWIPE FRONT HISTORY LAYER
 
@@ -89,7 +106,7 @@ const currencyAccount = {
     type: 'currency',
     number: '3333 3333 3333 3333',
     currency: 'PLN',
-    movements: [200, 300, 1000, -300]
+    movements: [200, 300, 1000, -300, 200]
 };
 
 const accounts = [currentAccount, savingAccount, currencyAccount];
@@ -98,17 +115,26 @@ const accounts = [currentAccount, savingAccount, currencyAccount];
 
 const zlotyExchangeRate = 5.2;
 
-currencyAccount.movements = currencyAccount.movements.map(function(mov) {
-    return mov * zlotyExchangeRate;
-})
+const currencyConversion = function(account) {
+
+    account.movements = account.movements.map(function(mov) {
+        return mov * zlotyExchangeRate;
+    })
+
+    account.balance = account.balance * zlotyExchangeRate;
+}
+
+currencyConversion(currencyAccount);
 
 // HISTORY
 
-const displayMovements = function(acc) {
+const displayMovements = function(acc, sort = false) {
     
     historyMovements.innerHTML = '';
 
-    acc.movements.forEach(function(movement) {
+    acc.movs = sort ? acc.movements.slice().sort((a, b) => a - b) : acc.movements;
+
+    acc.movs.forEach(function(movement) {
 
         const type = movement > 0 ? 'deposit' : 'withdrawal';
 
@@ -149,6 +175,21 @@ const displaySummary = function(acc) {
 
 displaySummary(accounts[0])
 
+// SORT 
+
+let sorted = false;
+
+btnSort.addEventListener('click', function() {
+
+    if (selectedAccount === undefined) {
+        displayMovements(accounts[0], !sorted);
+        sorted = !sorted;
+    } else {
+        displayMovements(selectedAccount, !sorted);
+        sorted = !sorted;
+    }
+})
+
 // NUMBER
 
 const displayAccountNumber = function(acc) {
@@ -166,17 +207,76 @@ displayAccountNumber(accounts)
 const calcDisplayBalance = function(accs) {
     
     accs.forEach(function(acc) {
-        const balance = acc.movements.reduce(function(accumulator, current) {
+        acc.balance = acc.movements.reduce(function(accumulator, current) {
             return accumulator + current;
         }, 0);
         accountBalanceLabel.find(function(label) {
             return label.classList.contains(`balance-${acc.type}`)
-        }).textContent = balance + ' ' + acc.currency;
+        }).textContent = acc.balance + ' ' + acc.currency;
     })
 };
 
 calcDisplayBalance(accounts);
 
+// TRANSFER
 
+btnTransfer.addEventListener('click', function(ev) {
+    ev.preventDefault();
+
+    const senderAccount = accounts.find(function(account) {
+        return account.type === transferSelectSend.value;
+    })
+
+    const receiverAccount = accounts.find(function(account) {
+        return account.type === transferSelectReceive.value;
+    })
+
+    let transferAmount = Number(transferInputNumber.value);
+
+    if (transferAmount > 0 && senderAccount.balance >= transferAmount && receiverAccount !== senderAccount) {
+
+
+        if (receiverAccount !== currencyAccount && senderAccount !== currencyAccount) {
+            
+            senderAccount.movements.push(-transferAmount);
+            receiverAccount.movements.push(transferAmount);
+
+        } 
+        
+        if (receiverAccount === currencyAccount) {
+
+            receiverAccount.movements.push(transferAmount * zlotyExchangeRate);
+            senderAccount.movements.push(-transferAmount);
+
+        } 
+        
+        if (senderAccount === currencyAccount) {
+            
+            senderAccount.movements.push(-(transferAmount * zlotyExchangeRate))
+            receiverAccount.movements.push(transferAmount / zlotyExchangeRate);
+            
+        }
+
+        calcDisplayBalance(accounts);
+
+        if (selectedAccount === undefined) {
+
+            displayMovements(accounts[0]);
+            displaySummary(accounts[0]);
+        } else {
+
+            displayMovements(selectedAccount);
+            displaySummary(selectedAccount);
+        }
+    }
+
+    transferInputNumber.value = '';
+})
+
+// DATE
+
+const date = new Date().getFullYear();
+
+currentYearLabel.textContent = date;
 
 
