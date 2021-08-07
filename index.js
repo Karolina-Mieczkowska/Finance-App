@@ -19,6 +19,7 @@ const transferInputNumber = document.querySelector('.transfer_input-number');
 
 const transferSection = document.querySelector('.transfer');
 const transferSwipe = document.querySelector('.transfer-swipe');
+const transferIcon = document.querySelector('.transfer-swipe svg')
 
 // SWIPE FRONT HISTORY LAYER
 
@@ -51,6 +52,32 @@ sectionTitleHistory.addEventListener('touchend', touchEnd);
 sectionTitleHistory.addEventListener('touchmove', touchMove);
 
 // SWIPE TRANSFER LAYER
+
+let transferIsDragging = false;
+
+const toggleTransferLayer = function() {
+    transferSection.classList.toggle('transfer-active');
+};
+
+const transferTouchStart = function() {
+    transferIsDragging = false;
+};
+
+const transferTouchEnd = function() {
+    if (transferIsDragging) {
+        toggleTransferLayer();
+    }
+};
+
+const transferTouchMove = function() {
+    transferIsDragging = true;
+};
+
+transferIcon.addEventListener('click', toggleTransferLayer);
+
+transferSection.addEventListener('touchstart', transferTouchStart);
+transferSection.addEventListener('touchend', transferTouchEnd);
+transferSection.addEventListener('touchmove', transferTouchMove);
 
 // SUBNAV ROUTER
 

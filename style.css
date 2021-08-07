@@ -142,7 +142,7 @@ header {
 }
 
 .transfer-active {
-    top: 10%;
+    top: 0;
 }
 
 .transfer_form {
@@ -247,7 +247,7 @@ header {
     position: absolute;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    bottom: -68%;
+    bottom: -60%;
     background: #fff;
     width: 100%;
     height: 85%;
