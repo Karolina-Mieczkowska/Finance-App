@@ -310,6 +310,12 @@ btnTransfer.addEventListener('click', function(ev) {
     }
 
     transferInputNumber.value = '';
+    if (screen.width < 1025) {
+
+        history.style.display = 'block';
+        transferSection.classList.remove('transfer_on-focus');
+        transferInputNumber.blur();
+    }
 })
 
 // DATE
