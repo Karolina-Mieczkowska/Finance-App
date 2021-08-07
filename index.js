@@ -79,6 +79,22 @@ transferSection.addEventListener('touchstart', transferTouchStart);
 transferSection.addEventListener('touchend', transferTouchEnd);
 transferSection.addEventListener('touchmove', transferTouchMove);
 
+// DISABLE HISTORY WHILE TRANSFERING
+
+if (screen.width < 1025) {
+    transferInputNumber.addEventListener('focus', function() {
+        
+        history.style.display = 'none';
+        transferSection.classList.add('transfer_on-focus');
+    });
+    
+    transferInputNumber.addEventListener('blur', function() {
+        
+        history.style.display = 'block';
+        transferSection.classList.remove('transfer_on-focus');
+    });
+}
+
 // SUBNAV ROUTER
 
 let prevItems = [];

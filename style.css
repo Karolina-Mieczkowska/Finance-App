@@ -142,7 +142,11 @@ header {
 }
 
 .transfer-active {
-    top: 0;
+    top: 2.5%;
+}
+
+.transfer_on-focus {
+    top: -10%;
 }
 
 .transfer_form {
